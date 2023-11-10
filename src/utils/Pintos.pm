@@ -364,8 +364,6 @@ sub read_loader {
 
     my ($handle);
     open ($handle, '<', $name) or die "$name: open: $!\n";
-    -s $handle == $LOADER_SIZE || -s $handle == 512
-      or die "$name: must be exactly $LOADER_SIZE or 512 bytes long\n";
     $loader = read_fully ($handle, $name, $LOADER_SIZE);
     close ($handle) or die "$name: close: $!\n";
     return $loader;
